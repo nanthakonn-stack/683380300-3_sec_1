@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+  <meta charset="UTF-8">
+  <title>เว็บไซต์ของ นันทกร โนนกลาง</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Itim&display=swap" rel="stylesheet">
+  <style>
+    body {
+      background-color: #d3e6f8;
+      font-family: Itim, sans-serif;
+    }
+    h1 {
+      color: #780b0b;
+      text-align: center;
+    }
+    p {
+      font-size: 16px;
+      text-align: center;
+    }
+    img {
+      width: 200px;
+      height: 200px;
+      border: 10px solid #c65f0a;
+      border-radius: 50%;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+      display: block;
+      margin: 20px auto;
+    }
+    table {
+      width: 80%;
+      border-collapse: collapse;
+      margin: 20px auto;
+      background-color: #bff3f5;
+    }
+    th, td {
+      border: 1px solid #555;
+      padding: 22px;
+    }
+    th {
+      background-color: #3498db;
+      color: #fff;
+    }
+    tr:nth-child(even) {
+      background-color: rgb(155, 169, 192);
+    }
+    .rbox {
+      text-align: center;
+      margin-top: 30px;
+    }
+    #num {
+      font-size: 2em;
+      margin-top: 10px;
+    }
+  </style>
+</head>
+<body>
+  <h1>หน้าแนะนำตัวของฉัน</h1>
+
+  <img src="siuuuu.png" alt="รูปภาพของฉัน">
+
+  <p>สวัสดีครับ/ค่ะ! นี่คือหน้าเว็บแนะนำตัวของฉัน</p>
+
+  <table>
+    <thead>
+      <tr><th colspan="2">ข้อมูลส่วนตัว</th></tr>
+    </thead>
+    <tbody>
+      <tr><td>รหัสประจำตัว</td><td>683380300-3</td></tr>
+      <tr><td>ชื่อ</td><td>นันทกร โนนกลาง</td></tr>
+      <tr><td>อีเมล</td><td>nantakon.n@kkumail.com</td></tr>
+      <tr><td>ความสนใจ</td><td>ชีวิตนี้เล่นแต่เกม</td></tr>
+    </tbody>
+  </table>
+
+  <div class="rbox">
+    <button onclick="start_random()">กดเพื่อสุ่มตัวเลข 3 หลัก</button>
+    <div id="num">---</div>
+  </div>
+
+  <script>
+    let n = 0;
+    const numElem = document.getElementById("num");
+
+    function start_random(){
+      if(n > 0) return;
+      n = 50;
+      next_number();
+    }
+    function next_number(){
+      const r = Math.floor(Math.random() * 1000).toString().padStart(3, '0');
+      numElem.innerText = r;
+      n--;
+      if(n > 0){
+        setTimeout(next_number, 150 - n);
+      }
+    }
+  </script>
+</body>
+</html>
